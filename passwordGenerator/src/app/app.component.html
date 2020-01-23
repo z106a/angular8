@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="columns is-centered">
+<div class="box column is-one-third">
+<h1 class="title has-text-centered">Password Generator</h1>
+
+<div class="field">
+  <label>Enter Length</label>
+  <input
+    class="input"
+    type="number"
+    (input)="onChangeLength($event)"
+  />
+</div>
+
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input
+        type="checkbox"
+        name="letters"
+        (change)="onChangeFeatures($event)"
+      />
+      Use Letters
+    </label>
+  </div>
+</div>
+
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input
+        type="checkbox"
+        name="numbers"
+        (change)="onChangeFeatures($event)"
+      />
+      Use Numbers
+    </label>
+  </div>
+</div>
+
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input
+        type="checkbox"
+        name="symbols"
+        (change)="onChangeFeatures($event)"
+      />
+      Use Symbols
+    </label>
+  </div>
+</div>
+
+<button
+  class="button is-link is-fullwidth"
+  [disabled]="!(length && (features.letters || features.numbers || features.symbols))"
+  (click)="onButtonClick()">
+  Generate!
+</button>
+
+
+<div class="box" *ngIf="password">
+  <label>Your Password</label>
+  <input class="input" [value]="password" />
+</div>
+
+</div>
+</div>
+</div>
